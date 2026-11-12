@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-
+import "./Dashboard.css";
 /* ---------------------------------------------------------------
    Data
 ---------------------------------------------------------------- */
@@ -467,6 +467,7 @@ const css = `
   padding: 18px 22px 22px;
   border-right: 1px solid var(--line);
 }
+.logo img { height: 32px; width: auto; display: block; }
 .logo { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
 .logo-mark {
   font-weight: 600; font-size: 18px; letter-spacing: -1px;
