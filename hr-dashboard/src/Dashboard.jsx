@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import "./Dashboard.css";
+
 /* ---------------------------------------------------------------
    Data
 ---------------------------------------------------------------- */
@@ -224,8 +224,8 @@ export default function Dashboard() {
       {/* ---------- Sidebar ---------- */}
       <aside className="sidebar">
         <div className="logo">
-  <img src="/logonew.png" alt="Interfacely" />
-</div>
+          <img src="/logonew.png" alt="Interfacely" />
+        </div>
 
         <nav className="nav">
           {navItems.map((item) => (
@@ -467,14 +467,8 @@ const css = `
   padding: 18px 22px 22px;
   border-right: 1px solid var(--line);
 }
+.logo { display: flex; align-items: center; margin-bottom: 28px; }
 .logo img { height: 32px; width: auto; display: block; }
-.logo { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
-.logo-mark {
-  font-weight: 600; font-size: 18px; letter-spacing: -1px;
-  background: linear-gradient(135deg, #e0409b, #4a3fdb);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.logo-text { font-weight: 600; font-size: 13px; letter-spacing: .5px; }
 .nav { display: flex; flex-direction: column; gap: 6px; }
 .nav-item {
   display: flex; align-items: center; gap: 10px;
