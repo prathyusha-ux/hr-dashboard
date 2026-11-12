@@ -224,9 +224,12 @@ export default function Dashboard() {
       {/* ---------- Sidebar ---------- */}
       <aside className="sidebar">
         <div className="logo">
-          <img src="/logonew.png" alt="Interfacely" />
-        </div>
-
+  <img
+    src="/logonew.png"
+    alt="Interfacely"
+    style={{ width: "100%", maxWidth: 150, height: "auto", display: "block" }}
+  />
+</div>
         <nav className="nav">
           {navItems.map((item) => (
             <button
