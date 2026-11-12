@@ -224,9 +224,8 @@ export default function Dashboard() {
       {/* ---------- Sidebar ---------- */}
       <aside className="sidebar">
         <div className="logo">
-          <span className="logo-mark">UX</span>
-          <span className="logo-text">INTERFACELY</span>
-        </div>
+  <img src="/logonew.png" alt="Interfacely" />
+</div>
 
         <nav className="nav">
           {navItems.map((item) => (
