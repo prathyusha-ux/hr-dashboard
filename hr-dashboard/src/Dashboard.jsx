@@ -227,7 +227,7 @@ export default function Dashboard() {
   <img
     src="/logonew.png"
     alt="Interfacely"
-    style={{ width: "100%", maxWidth: 150, height: "auto", display: "block" }}
+    style={{ width: "100%", maxWidth: 90, height: "auto", display: "block" }}
   />
 </div>
         <nav className="nav">
