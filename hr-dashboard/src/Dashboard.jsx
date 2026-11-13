@@ -442,7 +442,7 @@ export default function Dashboard() {
    Styles (kept in the file so the component is drop-in)
 ---------------------------------------------------------------- */
 const css = `
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 .app {
   --bg: #f4f5f9;
@@ -466,6 +466,7 @@ const css = `
 }
 .app *, .app *::before, .app *::after { box-sizing: border-box; }
 .app button { font-family: inherit; cursor: pointer; }
+.app font-family: 'Plus Jakarta Sans', system-ui, sans-serif;}
 .app :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
 /* Sidebar */
