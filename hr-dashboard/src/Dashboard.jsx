@@ -442,7 +442,7 @@ export default function Dashboard() {
    Styles (kept in the file so the component is drop-in)
 ---------------------------------------------------------------- */
 const css = `
-   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+   
 
 .app {
   --bg: #f4f5f9;
