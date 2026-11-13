@@ -81,6 +81,13 @@ const MonitorIcon = () => (
     <path d="M8 20h8M12 16v4" />
   </Icon>
 );
+const DocumentIcon = () => (
+  <Icon>
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+    <path d="M14 3v5h5" />
+    <path d="M9 13h6M9 17h6" />
+  </Icon>
+);
 const SettingsIcon = () => (
   <Icon>
     <circle cx="12" cy="12" r="3" />
@@ -211,11 +218,12 @@ export default function Dashboard() {
   };
 
   const navItems = [
-    { label: "Dashboard", icon: <DashboardIcon /> },
-    { label: "Employees", icon: <UsersIcon /> },
-    { label: "Assets", icon: <MonitorIcon /> },
-    { label: "Settings", icon: <SettingsIcon /> },
-  ];
+  { label: "Dashboard", icon: <DashboardIcon /> },
+  { label: "Employees", icon: <UsersIcon /> },
+  { label: "Assets", icon: <MonitorIcon /> },
+  { label: "Documents", icon: <DocumentIcon /> },
+  { label: "Settings", icon: <SettingsIcon /> },
+];
 
   return (
     <div className="app">
