@@ -559,7 +559,13 @@ const css = `
 }
 .segmented button.on { background: #fff; color: var(--ink); font-weight: 700; box-shadow: 0 1px 2px rgba(20, 26, 51, .1); }
 .table-scroll { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; min-width: 860px; }
+table { width: 100%; border-collapse: collapse; min-width: 860px; table-layout: fixed; }
+thead th:nth-child(1) { width: 13%; }
+thead th:nth-child(2) { width: 23.6%; }
+thead th:nth-child(3) { width: 22.3%; }
+thead th:nth-child(4) { width: 15.8%; }
+thead th:nth-child(5) { width: 12.8%; }
+thead th:nth-child(6) { width: 12.5%; }
 thead th {
   background: #f1f2f8; text-align: left; font-weight: 500; font-size: 18px;
   color: #646a85; height: 55px; padding: 0 16px;
