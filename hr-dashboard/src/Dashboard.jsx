@@ -528,7 +528,7 @@ const css = `
 .content { padding: 20px 48px 28px 28px; display: flex; flex-direction: column; gap: 20px; }
 .welcome { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .date { margin: 0; color: #6a7088; font-weight: 500; font-size: 18px; }
-.welcome h1 { margin: 4px 0 6px; font-size: 32px; font-weight: 500; line-height: 1.2; }
+.welcome h1 { margin: 4px 0 6px; font-size: 32px; font-weight: 600; line-height: 1.2; }
 .sub { margin: 0; font-size: 16px; font-weight: 400; color: #4d536b; }
 .primary-btn {
   height: 44px; background: var(--brand); color: #fff; border: 0; border-radius: 6px;
@@ -569,7 +569,7 @@ thead th:last-child { border-radius: 0 8px 8px 0; }
 tbody td { height: 64px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 400; color: #3a3f58; }
 tbody tr:last-child td { border-bottom: 0; }
 .center { text-align: center !important; }
-.name-cell { display: inline-flex; align-items: center; gap: 10px; }
+.name-cell { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: #131a33; }
 .avatar {
   width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
   font-size: 14px; font-weight: 600; color: #2c3150;
