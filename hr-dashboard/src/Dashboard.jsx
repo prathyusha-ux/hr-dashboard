@@ -572,18 +572,18 @@ thead th {
 }
 thead th:first-child { border-radius: 8px 0 0 8px; }
 thead th:last-child { border-radius: 0 8px 8px 0; }
-tbody td { height: 64px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 400; color: #3a3f58; }
+tbody td { height: 64px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; color: #1a2038; }
 tbody tr:last-child td { border-bottom: 0; }
 .center { text-align: center !important; }
-.name-cell { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: #131a33; }
+.name-cell { display: inline-flex; align-items: center; gap: 9px; font-weight: 500; color: #131a33; }
 .avatar {
   width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
   font-size: 14px; font-weight: 600; color: #2c3150;
 }
-.badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 16px; font-weight: 400; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 16px; font-weight: 500; }
 .badge.active { background: var(--green-bg); color: var(--green); }
 .badge.inactive { background: var(--red-bg); color: var(--red); }
-.view-link { color: #2f3cd6; text-decoration: underline; font-size: 16px; font-weight: 400; }
+.view-link { color: #2f3cd6; text-decoration: underline; font-size: 16px; font-weight: 500; }
 .empty { text-align: center; color: var(--muted); padding: 32px 16px !important; }
 
 .table-foot { display: flex; justify-content: space-between; align-items: center; padding: 14px 8px 0; gap: 12px; flex-wrap: wrap; }
