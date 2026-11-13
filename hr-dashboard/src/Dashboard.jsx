@@ -566,7 +566,7 @@ thead th {
 }
 thead th:first-child { border-radius: 8px 0 0 8px; }
 thead th:last-child { border-radius: 0 8px 8px 0; }
-tbody td { height: 64px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 400; }
+tbody td { height: 64px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 400; color: #3a3f58; }
 tbody tr:last-child td { border-bottom: 0; }
 .center { text-align: center !important; }
 .name-cell { display: inline-flex; align-items: center; gap: 10px; }
