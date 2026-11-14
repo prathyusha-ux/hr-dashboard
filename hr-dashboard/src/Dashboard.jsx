@@ -27,7 +27,7 @@ const extraNames = [
 ];
 const depts = ["Design", "Developer", "Analyst", "Finance", "Marketing", "HR", "Sales"];
 
-const employees = [
+const initialEmployees = [
   ...seed,
   ...extraNames.map((name, i) => ({
     name,
@@ -189,6 +189,24 @@ export default function Dashboard() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [activeNav, setActiveNav] = useState("Dashboard");
+  const [employees, setEmployees] = useState(initialEmployees);
+  const [view, setView] = useState("list");
+  const [notice, setNotice] = useState("");
+
+  const goTo = (v) => {
+    setView(v);
+    window.scrollTo(0, 0);
+  };
+
+  const addEmployee = (emp) => {
+    const total = employees.length + 1;
+    setEmployees((prev) => [...prev, { ...emp, sno: prev.length + 1 }]);
+    setFilter("All");
+    setQuery("");
+    setPage(Math.ceil(total / PAGE_SIZE));
+    setNotice(`${emp.name} was added to the employee list.`);
+    goTo("list");
+  };
 
   const today = new Date();
   const dateLabel = today
@@ -206,7 +224,7 @@ export default function Dashboard() {
         !q || e.id.toLowerCase().includes(q) || e.dept.toLowerCase().includes(q) || e.name.toLowerCase().includes(q);
       return matchesFilter && matchesQuery;
     });
-  }, [filter, query]);
+  }, [employees, filter, query]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -241,7 +259,10 @@ export default function Dashboard() {
             <button
               key={item.label}
               className={`nav-item ${activeNav === item.label ? "active" : ""}`}
-              onClick={() => setActiveNav(item.label)}
+              onClick={() => {
+                setActiveNav(item.label);
+                setView("list");
+              }}
             >
               {item.icon}
               <span>{item.label}</span>
@@ -290,6 +311,13 @@ export default function Dashboard() {
           </div>
         </header>
 
+        {view === "add" ? (
+          <AddEmployee
+            nextId={`UXII${String(employees.length + 1).padStart(4, "0")}`}
+            onBack={() => goTo("list")}
+            onSave={addEmployee}
+          />
+        ) : (
         <main className="content">
           <div className="welcome">
             <div>
@@ -297,13 +325,22 @@ export default function Dashboard() {
               <h1>{greeting}, HR</h1>
               <p className="sub">Here’s what needs your attention today.</p>
             </div>
-            <button className="primary-btn">+ Add Employee</button>
+            <button className="primary-btn" onClick={() => { setNotice(""); goTo("add"); }}>
+              + Add Employee
+            </button>
           </div>
+
+          {notice && (
+            <div className="notice" role="status">
+              {notice}
+              <button type="button" onClick={() => setNotice("")} aria-label="Dismiss">×</button>
+            </div>
+          )}
 
           <section className="stats">
             <StatCard
               label="Total Employees"
-              value="48"
+              value={String(employees.length)}
               tone="blue"
               icon={<UsersIcon size={16} />}
               footer={
@@ -431,6 +468,7 @@ export default function Dashboard() {
             </footer>
           </section>
         </main>
+        )}
       </div>
     </div>
   );
@@ -613,4 +651,5 @@ tbody tr:last-child td { border-bottom: 0; }
   .profile-text { display: none; }
   .welcome { flex-direction: column; }
 }
+
 `;
