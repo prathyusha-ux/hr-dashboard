@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import AddEmployee from "./AddEmployee.jsx";
+import TotalEmployees from "./TotalEmployees.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -158,9 +159,17 @@ function Avatar({ name, index }) {
   );
 }
 
-function StatCard({ label, value, icon, tone, footer }) {
+function StatCard({ label, value, icon, tone, footer, onClick }) {
+  const clickable = onClick
+    ? {
+        role: "button",
+        tabIndex: 0,
+        onClick,
+        onKeyDown: (e) => (e.key === "Enter" || e.key === " ") && onClick(),
+      }
+    : {};
   return (
-    <div className="stat-card">
+    <div className={`stat-card ${onClick ? "clickable" : ""}`} {...clickable}>
       <div className="stat-head">
         <span>{label}</span>
         <span className={`stat-icon ${tone}`}>{icon}</span>
@@ -261,7 +270,7 @@ export default function Dashboard() {
               className={`nav-item ${activeNav === item.label ? "active" : ""}`}
               onClick={() => {
                 setActiveNav(item.label);
-                setView("list");
+                setView(item.label === "Employees" ? "employees" : "list");
               }}
             >
               {item.icon}
@@ -317,6 +326,14 @@ export default function Dashboard() {
             onBack={() => goTo("list")}
             onSave={addEmployee}
           />
+        ) : view === "employees" ? (
+          <TotalEmployees
+            employees={employees}
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+          />
         ) : (
         <main className="content">
           <div className="welcome">
@@ -340,6 +357,10 @@ export default function Dashboard() {
           <section className="stats">
             <StatCard
               label="Total Employees"
+              onClick={() => {
+                setActiveNav("Employees");
+                goTo("employees");
+              }}
               value={String(employees.length)}
               tone="blue"
               icon={<UsersIcon size={16} />}
@@ -586,6 +607,9 @@ const css = `
 .stat-value { font-size: 44px; font-weight: 700; line-height: 1.25; margin: 4px 0; }
 .stat-foot { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 400; color: var(--muted); }
 .stat-foot.good { color: var(--green); }
+
+.stat-card.clickable { cursor: pointer; transition: box-shadow .15s, transform .15s; }
+.stat-card.clickable:hover { box-shadow: 0 6px 16px rgba(20, 26, 51, .14); }
 
 /* Table */
 .table-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 18px; }
