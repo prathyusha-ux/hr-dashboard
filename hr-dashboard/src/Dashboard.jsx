@@ -566,11 +566,11 @@ const css = `
 .nav-item {
   display: flex; align-items: center; gap: 12px;
   height: 41px; padding: 0 16px; border: 0; border-radius: 8px;
-  background: var(--brand-soft); color: var(--brand);
-  font-size: 16px; font-weight: 500; text-align: left;
+  background: transparent; color: #2a3050;
+  font-size: 16px; font-weight: 400; text-align: left;
 }
-.nav-item:hover { background: #e6e9fb; }
-.nav-item.active { background: var(--brand-soft); color: var(--brand); font-weight: 600; }
+.nav-item:hover { background: #f3f4fa; }
+.nav-item.active, .nav-item.active:hover { background: var(--brand-soft); color: var(--brand); font-weight: 500; }
 .help-card {
   margin-top: auto;
   display: flex; flex-direction: column; gap: 6px;
