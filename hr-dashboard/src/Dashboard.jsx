@@ -5,6 +5,7 @@ import EmployeesLeft from "./EmployeesLeft.jsx";
 import NewlyJoined from "./NewlyJoined.jsx";
 import Assets from "./Assets.jsx";
 import Documents from "./Documents.jsx";
+import Settings from "./Settings.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -275,7 +276,7 @@ export default function Dashboard() {
               onClick={() => {
                 setActiveNav(item.label);
                 setView(
-                  item.label === "Employees" ? "employees" : item.label === "Assets" ? "assets" : item.label === "Documents" ? "documents" : "list"
+                  item.label === "Employees" ? "employees" : item.label === "Assets" ? "assets" : item.label === "Documents" ? "documents" : item.label === "Settings" ? "settings" : "list"
                 );
               }}
             >
@@ -342,6 +343,13 @@ export default function Dashboard() {
           />
         ) : view === "left" ? (
           <EmployeesLeft
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+          />
+        ) : view === "settings" ? (
+          <Settings
             onBack={() => {
               setActiveNav("Dashboard");
               goTo("list");
