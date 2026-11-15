@@ -6,6 +6,7 @@ import NewlyJoined from "./NewlyJoined.jsx";
 import Assets from "./Assets.jsx";
 import Documents from "./Documents.jsx";
 import Settings from "./Settings.jsx";
+import NeedHelp from "./NeedHelp.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -289,7 +290,15 @@ export default function Dashboard() {
         <div className="help-card">
           <HelpIcon />
           <strong>Need Help?</strong>
-          <a href="#contact" className="help-link">
+          <a
+            href="#contact"
+            className="help-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveNav("Dashboard");
+              goTo("help");
+            }}
+          >
             Contact HR <ArrowRight />
           </a>
         </div>
@@ -343,6 +352,13 @@ export default function Dashboard() {
           />
         ) : view === "left" ? (
           <EmployeesLeft
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+          />
+        ) : view === "help" ? (
+          <NeedHelp
             onBack={() => {
               setActiveNav("Dashboard");
               goTo("list");
