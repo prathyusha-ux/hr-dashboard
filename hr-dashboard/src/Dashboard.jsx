@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import AddEmployee from "./AddEmployee.jsx";
 import TotalEmployees from "./TotalEmployees.jsx";
+import EmployeesLeft from "./EmployeesLeft.jsx";
+import NewlyJoined from "./NewlyJoined.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -334,6 +336,20 @@ export default function Dashboard() {
               goTo("list");
             }}
           />
+        ) : view === "left" ? (
+          <EmployeesLeft
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+          />
+        ) : view === "joined" ? (
+          <NewlyJoined
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+          />
         ) : (
         <main className="content">
           <div className="welcome">
@@ -372,6 +388,10 @@ export default function Dashboard() {
             />
             <StatCard
               label="Employees Left"
+              onClick={() => {
+                setActiveNav("Employees");
+                goTo("left");
+              }}
               value="16"
               tone="red"
               icon={<UsersIcon size={16} />}
@@ -379,6 +399,10 @@ export default function Dashboard() {
             />
             <StatCard
               label="Newly joined Employees"
+              onClick={() => {
+                setActiveNav("Employees");
+                goTo("joined");
+              }}
               value="18"
               tone="sky"
               icon={<UsersIcon size={16} />}
