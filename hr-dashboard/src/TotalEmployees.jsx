@@ -130,7 +130,7 @@ export default function TotalEmployees({ employees, onBack }) {
 
       <section className="table-card">
         <div className="table-head">
-          <h2>Employees</h2>
+          <h2 className="te-card-title">{group} EMPLOYEES</h2>
           <div className="segmented" role="tablist">
             {["All", "Active", "Inactive"].map((f) => (
               <button
@@ -241,11 +241,12 @@ const css = `
   font: inherit; font-size: 16px; color: var(--ink);
 }
 .te-search input::placeholder { color: #6f7590; }
-.te-toggle { display: flex; gap: 6px; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.te-toggle { display: flex; gap: 8px; padding: 6px 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
 .te-toggle button {
-  height: 32px; padding: 0 22px; background: #fff; color: var(--ink);
-  border: 1px solid var(--line); border-radius: 6px; font-size: 14px; font-weight: 600;
+  height: 30px; min-width: 120px; padding: 0 16px; background: #fff; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 16px; font-size: 14px; font-weight: 600;
 }
+.table-head .te-card-title { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.2px; }
 .te-toggle button.on { background: #2f5bea; border-color: #2f5bea; color: #fff; }
 @media (max-width: 720px) {
   .te-page { padding-left: 16px; padding-right: 16px; }
