@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import AddEmployee from "./AddEmployee.jsx";
 import TotalEmployees from "./TotalEmployees.jsx";
 import EmployeesLeft from "./EmployeesLeft.jsx";
@@ -207,6 +207,28 @@ export default function Dashboard() {
   const [employees, setEmployees] = useState(initialEmployees);
   const [view, setView] = useState("list");
   const [notice, setNotice] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  /* Close the profile menu with the Escape key. */
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  /* Profile menu actions. My profile, Edit profile, Account & privacy and Notifications all open Settings. */
+  const openSettings = () => {
+    setMenuOpen(false);
+    setActiveNav("Settings");
+    goTo("settings");
+  };
+  const signOut = () => {
+    setMenuOpen(false);
+    setActiveNav("Dashboard");
+    goTo("list");
+    setNotice("Sign out isn't set up yet. Connect your login system to enable it.");
+  };
 
   const goTo = (v) => {
     setView(v);
@@ -325,13 +347,41 @@ export default function Dashboard() {
               <BellIcon />
               <span className="bell-dot" />
             </button>
-            <div className="profile">
-              <span className="profile-avatar">H</span>
-              <div className="profile-text">
-                <span className="profile-name">Haripriya</span>
-                <span className="profile-role">HR Admin</span>
-              </div>
-              <ChevronDown />
+            <div className="profile-wrap">
+              <button
+                type="button"
+                className="profile"
+                aria-haspopup="menu"
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((o) => !o)}
+              >
+                <span className="profile-avatar">H</span>
+                <div className="profile-text">
+                  <span className="profile-name">Haripriya</span>
+                  <span className="profile-role">HR Admin</span>
+                </div>
+                <ChevronDown />
+              </button>
+
+              {menuOpen && (
+                <>
+                  <div className="menu-scrim" onClick={() => setMenuOpen(false)} />
+                  <div className="profile-menu" role="menu">
+                    <div className="profile-menu-head">
+                      <span className="profile-avatar">H</span>
+                      <div className="profile-text">
+                        <span className="menu-name">Haripriya</span>
+                        <span className="menu-role">HR Admin</span>
+                      </div>
+                    </div>
+                    <button type="button" role="menuitem" onClick={openSettings}>My profile</button>
+                    <button type="button" role="menuitem" onClick={openSettings}>Edit profile</button>
+                    <button type="button" role="menuitem" onClick={openSettings}>Account & privacy</button>
+                    <button type="button" role="menuitem" onClick={openSettings}>Notifications</button>
+                    <button type="button" role="menuitem" className="menu-danger" onClick={signOut}>Sign out</button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </header>
@@ -641,7 +691,28 @@ const css = `
 .topbar-right { display: flex; align-items: center; gap: 36px; }
 .bell { position: relative; border: 0; background: transparent; color: #a99be6; display: grid; place-items: center; padding: 4px; }
 .bell-dot { position: absolute; top: 2px; right: 3px; width: 8px; height: 8px; border-radius: 50%; background: #f08a7c; }
-.profile { display: flex; align-items: center; gap: 14px; }
+.profile-wrap { position: relative; }
+.profile {
+  display: flex; align-items: center; gap: 14px; padding: 0; border: 0; background: transparent;
+  color: inherit; text-align: left;
+}
+.profile svg:last-child { transition: transform .15s; }
+.profile[aria-expanded="true"] svg:last-child { transform: rotate(180deg); }
+.menu-scrim { position: fixed; inset: 0; z-index: 40; background: rgba(31, 37, 64, .35); }
+.profile-menu {
+  position: absolute; right: -8px; top: calc(100% + 16px); z-index: 41; width: 248px;
+  background: var(--surface); border-radius: 10px; box-shadow: 0 8px 28px rgba(31, 37, 64, .22); overflow: hidden;
+}
+.profile-menu-head { display: flex; align-items: center; gap: 12px; padding: 12px; border-bottom: 1px solid var(--line); }
+.profile-menu-head .profile-avatar { width: 40px; height: 40px; flex-shrink: 0; }
+.menu-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.menu-role { font-size: 12px; color: var(--muted); }
+.profile-menu [role="menuitem"] {
+  display: block; width: 100%; padding: 13px 12px; border: 0; background: transparent;
+  text-align: left; font-size: 14px; font-weight: 400; color: var(--ink);
+}
+.profile-menu [role="menuitem"]:hover { background: var(--bg); }
+.profile-menu .menu-danger { color: var(--red); }
 .profile-avatar {
   width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center; font-weight: 600; font-size: 16px;
