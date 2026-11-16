@@ -7,6 +7,7 @@ import Assets from "./Assets.jsx";
 import Documents from "./Documents.jsx";
 import Settings from "./Settings.jsx";
 import NeedHelp from "./NeedHelp.jsx";
+import MyProfile from "./MyProfile.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -217,7 +218,12 @@ export default function Dashboard() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  /* Profile menu actions. My profile, Edit profile, Account & privacy and Notifications all open Settings. */
+  /* Profile menu actions. My profile opens the profile page. Edit profile, Account & privacy and Notifications open Settings. */
+  const openProfile = () => {
+    setMenuOpen(false);
+    setActiveNav("Dashboard");
+    goTo("profile");
+  };
   const openSettings = () => {
     setMenuOpen(false);
     setActiveNav("Settings");
@@ -374,7 +380,7 @@ export default function Dashboard() {
                         <span className="menu-role">HR Admin</span>
                       </div>
                     </div>
-                    <button type="button" role="menuitem" onClick={openSettings}>My profile</button>
+                    <button type="button" role="menuitem" onClick={openProfile}>My profile</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Edit profile</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Account & privacy</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Notifications</button>
@@ -406,6 +412,14 @@ export default function Dashboard() {
               setActiveNav("Dashboard");
               goTo("list");
             }}
+          />
+        ) : view === "profile" ? (
+          <MyProfile
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+            onSettings={openSettings}
           />
         ) : view === "help" ? (
           <NeedHelp
