@@ -8,6 +8,7 @@ import Documents from "./Documents.jsx";
 import Settings from "./Settings.jsx";
 import NeedHelp from "./NeedHelp.jsx";
 import MyProfile from "./MyProfile.jsx";
+import AccountPrivacy from "./AccountPrivacy.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -224,6 +225,11 @@ export default function Dashboard() {
     setActiveNav("Dashboard");
     goTo("profile");
   };
+  const openAccount = () => {
+    setMenuOpen(false);
+    setActiveNav("Dashboard");
+    goTo("account");
+  };
   const openSettings = () => {
     setMenuOpen(false);
     setActiveNav("Settings");
@@ -382,7 +388,7 @@ export default function Dashboard() {
                     </div>
                     <button type="button" role="menuitem" onClick={openProfile}>My profile</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Edit profile</button>
-                    <button type="button" role="menuitem" onClick={openSettings}>Account & privacy</button>
+                    <button type="button" role="menuitem" onClick={openAccount}>Account & privacy</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Notifications</button>
                     <button type="button" role="menuitem" className="menu-danger" onClick={signOut}>Sign out</button>
                   </div>
@@ -420,6 +426,16 @@ export default function Dashboard() {
               goTo("list");
             }}
             onSettings={openSettings}
+            onAccount={openAccount}
+          />
+        ) : view === "account" ? (
+          <AccountPrivacy
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+            onProfile={openProfile}
+            onNotifications={openSettings}
           />
         ) : view === "help" ? (
           <NeedHelp

@@ -72,7 +72,7 @@ function Field({ label, value }) {
 }
 
 /* onBack: back to the dashboard. onSettings: opens the Settings page, where profile, security and notifications are edited. */
-export default function MyProfile({ onBack, onSettings }) {
+export default function MyProfile({ onBack, onSettings, onAccount }) {
   const p = PROFILE;
 
   return (
@@ -117,7 +117,7 @@ export default function MyProfile({ onBack, onSettings }) {
 
       <nav className="mp-tabs" aria-label="Account sections">
         <button type="button" className="on" aria-current="page">Profile</button>
-        <button type="button" onClick={onSettings}>Account &amp; security</button>
+        <button type="button" onClick={onAccount || onSettings}>Account &amp; security</button>
         <button type="button" onClick={onSettings}>Notifications</button>
       </nav>
 
