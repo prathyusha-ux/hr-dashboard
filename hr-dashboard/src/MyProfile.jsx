@@ -72,8 +72,8 @@ function Field({ label, value }) {
 }
 
 /* onBack: back to the dashboard. onSettings: opens the Settings page, where profile, security and notifications are edited. */
-export default function MyProfile({ onBack, onSettings, onAccount }) {
-  const p = PROFILE;
+export default function MyProfile({ onBack, onSettings, onAccount, onEdit, profile, note }) {
+  const p = { ...PROFILE, ...(profile || {}) };
 
   return (
     <main className="mp-page">
@@ -83,18 +83,24 @@ export default function MyProfile({ onBack, onSettings, onAccount }) {
         <ArrowLeft /> My account <span>/</span> Profile
       </button>
 
+      {note && (
+        <div className="mp-note" role="status">
+          {note}
+        </div>
+      )}
+
       <div className="mp-top">
         <div>
           <h1>My profile</h1>
           <p>View and manage your personal and professional information.</p>
         </div>
-        <button type="button" className="mp-edit" onClick={onSettings}>Edit profile</button>
+        <button type="button" className="mp-edit" onClick={onEdit || onSettings}>Edit profile</button>
       </div>
 
       <section className="mp-hero">
         <div className="mp-avatar-wrap">
-          <span className="mp-avatar">{p.name.charAt(0)}</span>
-          <button type="button" className="mp-camera" onClick={onSettings} aria-label="Change profile photo">
+          <span className="mp-avatar">{p.photo ? <img src={p.photo} alt="Your profile" /> : p.name.charAt(0)}</span>
+          <button type="button" className="mp-camera" onClick={onEdit || onSettings} aria-label="Change profile photo">
             <CameraIcon />
           </button>
         </div>
@@ -149,7 +155,7 @@ export default function MyProfile({ onBack, onSettings, onAccount }) {
         <section className="mp-card mp-short">
           <div className="mp-card-head">
             <h2>Account security</h2>
-            <button type="button" className="mp-link" onClick={onSettings}>
+            <button type="button" className="mp-link" onClick={onAccount || onSettings}>
               Manage security <ArrowRight />
             </button>
           </div>
@@ -197,7 +203,9 @@ const css = `
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
 }
 .mp-avatar-wrap { position: relative; flex-shrink: 0; }
-.mp-avatar { width: 96px; height: 96px; display: grid; place-items: center; border-radius: 50%; background: #ddd6fe; color: #2c3150; font-size: 36px; font-weight: 600; }
+.mp-note { margin-left: 10px; padding: 12px 16px; border-radius: 8px; background: var(--green-bg); color: var(--green); font-size: 15px; font-weight: 500; }
+.mp-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.mp-avatar { overflow: hidden; width: 96px; height: 96px; display: grid; place-items: center; border-radius: 50%; background: #ddd6fe; color: #2c3150; font-size: 36px; font-weight: 600; }
 .mp-camera {
   position: absolute; right: -2px; bottom: 0; width: 26px; height: 26px; display: grid; place-items: center;
   border: 2px solid #fff; border-radius: 50%; background: #4f46e5; color: #fff; padding: 0;

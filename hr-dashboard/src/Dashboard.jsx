@@ -9,6 +9,7 @@ import Settings from "./Settings.jsx";
 import NeedHelp from "./NeedHelp.jsx";
 import MyProfile from "./MyProfile.jsx";
 import AccountPrivacy from "./AccountPrivacy.jsx";
+import EditProfile from "./EditProfile.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -210,6 +211,15 @@ export default function Dashboard() {
   const [view, setView] = useState("list");
   const [notice, setNotice] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "Haripriya",
+    phone: "+91 98765 43210",
+    dob: "18 August 1996",
+    gender: "Female",
+    address: "Hyderabad, India",
+    photo: "",
+  });
+  const [profileNote, setProfileNote] = useState("");
 
   /* Close the profile menu with the Escape key. */
   useEffect(() => {
@@ -223,6 +233,16 @@ export default function Dashboard() {
   const openProfile = () => {
     setMenuOpen(false);
     setActiveNav("Dashboard");
+    goTo("profile");
+  };
+  const openEdit = () => {
+    setMenuOpen(false);
+    setActiveNav("Dashboard");
+    goTo("edit");
+  };
+  const saveProfile = (values) => {
+    setProfile(values);
+    setProfileNote("Your profile was updated.");
     goTo("profile");
   };
   const openAccount = () => {
@@ -243,6 +263,7 @@ export default function Dashboard() {
   };
 
   const goTo = (v) => {
+    if (v !== "profile") setProfileNote("");
     setView(v);
     window.scrollTo(0, 0);
   };
@@ -367,9 +388,9 @@ export default function Dashboard() {
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((o) => !o)}
               >
-                <span className="profile-avatar">H</span>
+                <span className="profile-avatar">{profile.photo ? <img src={profile.photo} alt="" /> : profile.name.charAt(0).toUpperCase()}</span>
                 <div className="profile-text">
-                  <span className="profile-name">Haripriya</span>
+                  <span className="profile-name">{profile.name}</span>
                   <span className="profile-role">HR Admin</span>
                 </div>
                 <ChevronDown />
@@ -380,14 +401,14 @@ export default function Dashboard() {
                   <div className="menu-scrim" onClick={() => setMenuOpen(false)} />
                   <div className="profile-menu" role="menu">
                     <div className="profile-menu-head">
-                      <span className="profile-avatar">H</span>
+                      <span className="profile-avatar">{profile.photo ? <img src={profile.photo} alt="" /> : profile.name.charAt(0).toUpperCase()}</span>
                       <div className="profile-text">
-                        <span className="menu-name">Haripriya</span>
+                        <span className="menu-name">{profile.name}</span>
                         <span className="menu-role">HR Admin</span>
                       </div>
                     </div>
                     <button type="button" role="menuitem" onClick={openProfile}>My profile</button>
-                    <button type="button" role="menuitem" onClick={openSettings}>Edit profile</button>
+                    <button type="button" role="menuitem" onClick={openEdit}>Edit profile</button>
                     <button type="button" role="menuitem" onClick={openAccount}>Account & privacy</button>
                     <button type="button" role="menuitem" onClick={openSettings}>Notifications</button>
                     <button type="button" role="menuitem" className="menu-danger" onClick={signOut}>Sign out</button>
@@ -427,6 +448,15 @@ export default function Dashboard() {
             }}
             onSettings={openSettings}
             onAccount={openAccount}
+            onEdit={openEdit}
+            profile={profile}
+            note={profileNote}
+          />
+        ) : view === "edit" ? (
+          <EditProfile
+            profile={profile}
+            onBack={() => goTo("profile")}
+            onSave={saveProfile}
           />
         ) : view === "account" ? (
           <AccountPrivacy
@@ -734,6 +764,8 @@ const css = `
   background: var(--surface); border-radius: 10px; box-shadow: 0 8px 28px rgba(31, 37, 64, .22); overflow: hidden;
 }
 .profile-menu-head { display: flex; align-items: center; gap: 12px; padding: 12px; border-bottom: 1px solid var(--line); }
+.profile-avatar { overflow: hidden; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .profile-menu-head .profile-avatar { width: 40px; height: 40px; flex-shrink: 0; }
 .menu-name { font-size: 14px; font-weight: 600; color: var(--ink); }
 .menu-role { font-size: 12px; color: var(--muted); }
