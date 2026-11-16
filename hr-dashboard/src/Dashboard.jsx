@@ -10,6 +10,7 @@ import NeedHelp from "./NeedHelp.jsx";
 import MyProfile from "./MyProfile.jsx";
 import AccountPrivacy from "./AccountPrivacy.jsx";
 import EditProfile from "./EditProfile.jsx";
+import Notifications, { INITIAL_NOTIFICATIONS } from "./Notifications.jsx";
 
 /* ---------------------------------------------------------------
    Data
@@ -220,6 +221,8 @@ export default function Dashboard() {
     photo: "",
   });
   const [profileNote, setProfileNote] = useState("");
+  const [notifs, setNotifs] = useState(INITIAL_NOTIFICATIONS);
+  const hasUnread = notifs.some((n) => n.unread);
 
   /* Close the profile menu with the Escape key. */
   useEffect(() => {
@@ -234,6 +237,19 @@ export default function Dashboard() {
     setMenuOpen(false);
     setActiveNav("Dashboard");
     goTo("profile");
+  };
+  const openNotifications = () => {
+    setMenuOpen(false);
+    setActiveNav("Dashboard");
+    goTo("notifications");
+  };
+  const openEmployeesPage = () => {
+    setActiveNav("Employees");
+    goTo("employees");
+  };
+  const openAssetsPage = () => {
+    setActiveNav("Assets");
+    goTo("assets");
   };
   const openEdit = () => {
     setMenuOpen(false);
@@ -376,9 +392,9 @@ export default function Dashboard() {
           </label>
 
           <div className="topbar-right">
-            <button className="bell" aria-label="Notifications">
+            <button className="bell" aria-label="Notifications" onClick={openNotifications}>
               <BellIcon />
-              <span className="bell-dot" />
+              {hasUnread && <span className="bell-dot" />}
             </button>
             <div className="profile-wrap">
               <button
@@ -410,7 +426,7 @@ export default function Dashboard() {
                     <button type="button" role="menuitem" onClick={openProfile}>My profile</button>
                     <button type="button" role="menuitem" onClick={openEdit}>Edit profile</button>
                     <button type="button" role="menuitem" onClick={openAccount}>Account & privacy</button>
-                    <button type="button" role="menuitem" onClick={openSettings}>Notifications</button>
+                    <button type="button" role="menuitem" onClick={openNotifications}>Notifications</button>
                     <button type="button" role="menuitem" className="menu-danger" onClick={signOut}>Sign out</button>
                   </div>
                 </>
@@ -449,8 +465,20 @@ export default function Dashboard() {
             onSettings={openSettings}
             onAccount={openAccount}
             onEdit={openEdit}
+            onNotifications={openNotifications}
             profile={profile}
             note={profileNote}
+          />
+        ) : view === "notifications" ? (
+          <Notifications
+            items={notifs}
+            setItems={setNotifs}
+            onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+            onSettings={openSettings}
+            links={{ employees: openEmployeesPage, assets: openAssetsPage, account: openAccount }}
           />
         ) : view === "edit" ? (
           <EditProfile
@@ -465,7 +493,7 @@ export default function Dashboard() {
               goTo("list");
             }}
             onProfile={openProfile}
-            onNotifications={openSettings}
+            onNotifications={openNotifications}
           />
         ) : view === "help" ? (
           <NeedHelp
