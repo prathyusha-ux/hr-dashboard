@@ -169,18 +169,18 @@ export default function EmployeesLeft({ onBack }) {
 /* Page styles. Colour variables, avatar and name styles come from Dashboard.jsx. */
 const css = `
 .el-page { padding: 20px 48px 28px 18px; display: flex; flex-direction: column; gap: 16px; }
-.el-crumbs { display: flex; align-items: center; gap: 10px; padding-left: 10px; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.el-crumbs { display: flex; align-items: center; gap: 10px; padding-left: 10px; font-size: 19px; font-weight: 500; color: #626979; }
 .el-crumbs button { border: 0; background: transparent; padding: 0; color: inherit; font-size: inherit; font-weight: inherit; }
 .el-back { display: grid; place-items: center; }
 .el-link:hover { text-decoration: underline; }
-.el-title { margin: 0; padding-left: 10px; font-size: 30px; font-weight: 600; line-height: 1.2; }
+.el-title { margin: 0; padding-left: 10px; font-size: 28px; font-weight: 600; line-height: 1.2; color: #202432; }
 .el-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .el-search {
   display: flex; align-items: center; gap: 14px; width: 100%; max-width: 420px; height: 44px;
   padding: 0 18px; background: #eef0fb; border-radius: 22px; color: #555b78;
 }
-.el-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink); }
-.el-search input::placeholder { color: #6f7590; }
+.el-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink); font-weight: 400; }
+.el-search input::placeholder { color: #626979; }
 .el-toggle { display: flex; gap: 8px; padding: 6px 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
 .el-toggle button {
   height: 30px; min-width: 120px; padding: 0 16px; background: #fff; color: var(--ink);
@@ -189,9 +189,9 @@ const css = `
 .el-toggle button.on { background: #2f5bea; border-color: #2f5bea; color: #fff; }
 
 .el-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 18px; }
-.el-card-title { margin: 0; padding: 4px 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.2px; }
+.el-card-title { margin: 0; padding: 4px 0 10px; font-size: 19.5px; font-weight: 600; letter-spacing: 0; }
 .el-table { min-width: 980px; }
-.el-table thead th { height: 55px; font-size: 14px; padding: 0 12px; }
+.el-table thead th { height: 55px; font-size: 14px; padding: 0 12px; font-weight: 500; }
 .el-table tbody td { padding: 0 12px; }
 .el-table thead th:nth-child(1) { width: 5.6%; }
 .el-table thead th:nth-child(2) { width: 19.5%; }
@@ -206,13 +206,13 @@ const css = `
 }
 .el-pill.settled { background: var(--green-bg); color: var(--green); }
 .el-pill.pending { background: var(--red-bg); color: var(--red); }
-.el-date { text-decoration: underline; font-weight: 500; }
+.el-date { text-decoration: underline; font-weight: 500; font-size: 15.5px; }
 .el-view {
   width: 122px; height: 34px; background: #eef2ff; color: #2f3cd6;
   border: 1px solid #c9d3f5; border-radius: 4px; font-size: 14px; font-weight: 500;
 }
 .el-view:hover { background: #e2e9ff; }
-.el-showing { margin: 12px 8px 0; font-size: 16px; color: var(--muted); }
+.el-showing { margin: 12px 8px 0; font-size: 16px; color: #626979; font-weight: 400; }
 @media (max-width: 720px) {
   .el-page { padding-left: 16px; padding-right: 16px; }
 }

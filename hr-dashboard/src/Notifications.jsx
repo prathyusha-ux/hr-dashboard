@@ -299,12 +299,12 @@ export default function Notifications({ items, setItems, onBack, onSettings, lin
 /* Page styles. Colour variables come from .app in Dashboard.jsx. */
 const css = `
 .nt-page { padding: 20px 48px 28px 18px; display: flex; flex-direction: column; gap: 14px; }
-.nt-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.nt-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 19px; font-weight: 500; color: #626979; }
 .nt-crumb:hover { text-decoration: underline; }
 .nt-crumb span { margin: 0 -4px 0 -2px; }
 .nt-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-left: 10px; }
-.nt-top h1 { margin: 0; font-size: 32px; font-weight: 600; line-height: 1.2; }
-.nt-top p { margin: 6px 0 0; font-size: 18px; color: #4d5370; }
+.nt-top h1 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; color: #202432; }
+.nt-top p { margin: 6px 0 0; font-size: 16px; color: #626979; font-weight: 400; }
 .nt-markall { height: 44px; padding: 0 28px; background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; font-size: 15px; font-weight: 600; }
 .nt-markall:hover:not(:disabled) { background: #f3f4fa; }
 .nt-markall:disabled { opacity: .5; cursor: not-allowed; }
@@ -316,7 +316,7 @@ const css = `
 .nt-list { overflow: hidden; }
 
 .nt-tabs { display: flex; gap: 8px; padding: 0 20px; border-bottom: 1px solid var(--line); }
-.nt-tabs button { display: inline-flex; align-items: center; gap: 8px; margin-bottom: -1px; padding: 18px 4px 14px; margin-right: 14px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #4d5370; font-size: 16px; font-weight: 500; }
+.nt-tabs button { display: inline-flex; align-items: center; gap: 8px; margin-bottom: -1px; padding: 18px 4px 14px; margin-right: 14px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #4d5370; font-size: 14px; font-weight: 500; }
 .nt-tabs button:hover { color: var(--ink); }
 .nt-tabs button.on { color: #4f46e5; border-bottom-color: #4f46e5; }
 .nt-count { min-width: 26px; height: 24px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 999px; background: #eef0ff; color: #4f46e5; font-size: 12px; font-weight: 500; }
@@ -331,7 +331,7 @@ const css = `
 .nt-legend { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #4f46e5; }
 .nt-legend i { width: 7px; height: 7px; border-radius: 50%; background: #4f46e5; }
 
-.nt-day { padding: 9px 20px; background: #f3f4f8; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 500; color: #4d5370; }
+.nt-day { padding: 9px 20px; background: #f3f4f8; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 500; color: #4d5370; }
 .nt-empty { padding: 36px 20px; text-align: center; color: var(--muted); }
 .nt-item { position: relative; display: flex; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); cursor: pointer; }
 .nt-item:last-child { border-bottom: 0; }
@@ -339,28 +339,28 @@ const css = `
 .nt-icon { width: 36px; height: 36px; flex-shrink: 0; display: grid; place-items: center; border-radius: 8px; background: #eef0fb; color: #4d5370; }
 .nt-item.unread .nt-icon { color: #4f46e5; }
 .nt-body { flex: 1; min-width: 0; padding-right: 22px; }
-.nt-body h3 { margin: 0; font-size: 16px; font-weight: 500; color: var(--ink); }
+.nt-body h3 { margin: 0; font-size: 14px; font-weight: 500; color: var(--ink); }
 .nt-item.unread .nt-body h3 { font-weight: 600; }
-.nt-body p { margin: 6px 0 0; font-size: 14px; color: #6b7185; }
+.nt-body p { margin: 6px 0 0; font-size: 13px; color: #6b7185; }
 .nt-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 8px; font-size: 12px; color: #6b7185; }
 .nt-meta b { margin: 0 4px; font-weight: 400; }
 .nt-dot { position: absolute; top: 20px; right: 20px; width: 8px; height: 8px; border-radius: 50%; background: #4f46e5; }
-.nt-action { display: inline-flex; align-items: center; gap: 4px; border: 0; background: transparent; padding: 0; color: #2f3cd6; font-size: 13px; font-weight: 400; white-space: nowrap; }
+.nt-action { display: inline-flex; align-items: center; gap: 4px; border: 0; background: transparent; padding: 0; color: #2f3cd6; font-size: 14px; font-weight: 400; white-space: nowrap; }
 .nt-action:hover { text-decoration: underline; }
 .nt-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 20px; border-top: 1px solid var(--line); font-size: 13px; color: #6b7185; }
 
 .nt-side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .nt-side .nt-card { padding: 22px 24px 24px; }
-.nt-side h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 20px; font-weight: 600; }
+.nt-side h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 18px; font-weight: 600; }
 .nt-side h2 svg { color: #4f46e5; }
-.nt-lead { margin: 14px 0 0; font-size: 15px; line-height: 1.5; color: #6b7185; }
+.nt-lead { margin: 14px 0 0; font-size: 14px; line-height: 1.5; color: #6b7185; }
 .nt-pref { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0 4px; }
 .nt-pref.first { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
-.nt-pref strong { display: block; font-size: 15px; font-weight: 500; }
-.nt-pref span { display: block; margin-top: 4px; font-size: 13px; color: #6b7185; }
+.nt-pref strong { display: block; font-size: 14px; font-weight: 500; }
+.nt-pref span { display: block; margin-top: 4px; font-size: 12px; color: #6b7185; }
 .nt-manage { display: inline-flex; align-items: center; gap: 6px; width: 100%; margin-top: 18px; padding: 16px 0 0; border: 0; border-top: 1px solid var(--line); background: transparent; color: #4f46e5; font-size: 16px; font-weight: 500; text-align: left; }
 .nt-manage:hover { text-decoration: underline; }
-.nt-secure { display: flex; gap: 10px; margin: 16px 0 0; font-size: 13px; line-height: 1.5; color: #6b7185; }
+.nt-secure { display: flex; gap: 10px; margin: 16px 0 0; font-size: 12px; line-height: 1.5; color: #6b7185; }
 .nt-secure svg { flex-shrink: 0; margin-top: 2px; }
 
 .nt-switch { position: relative; width: 38px; height: 22px; flex-shrink: 0; padding: 0; border: 0; border-radius: 999px; background: #cfd3e3; transition: background .15s; }

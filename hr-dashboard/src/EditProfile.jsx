@@ -259,12 +259,12 @@ export default function EditProfile({ profile, onBack, onSave }) {
 /* Page styles. Colour variables come from .app in Dashboard.jsx. */
 const css = `
 .ep-page { padding: 20px 48px 28px 18px; display: flex; flex-direction: column; gap: 14px; }
-.ep-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.ep-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 18px; font-weight: 500; color: #626979; }
 .ep-crumb:hover { text-decoration: underline; }
 .ep-crumb span { margin: 0 -4px 0 -2px; }
 .ep-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-left: 10px; }
-.ep-top h1 { margin: 0; font-size: 32px; font-weight: 600; line-height: 1.2; }
-.ep-top p { margin: 6px 0 0; font-size: 16px; color: #4d5370; }
+.ep-top h1 { margin: 0; font-size: 30px; font-weight: 600; line-height: 1.2; color: #202432; }
+.ep-top p { margin: 6px 0 0; font-size: 16px; color: #4d5370; font-weight: 400; }
 .ep-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 0; border: 0; background: transparent; color: #2f3cd6; font-size: 16px; font-weight: 500; }
 .ep-back:hover { text-decoration: underline; }
 
@@ -272,30 +272,30 @@ const css = `
 .ep-photo { width: 96px; height: 96px; flex-shrink: 0; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: #ddd6fe; color: #2c3150; font-size: 36px; font-weight: 600; }
 .ep-photo img { width: 100%; height: 100%; object-fit: cover; }
 .ep-who { flex: 1; min-width: 0; }
-.ep-who h2 { margin: 0; font-size: 28px; font-weight: 500; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ep-who h2 { margin: 0; font-size: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .ep-active { padding: 2px 10px; border-radius: 999px; background: var(--green-bg); color: var(--green); font-size: 12px; font-weight: 500; }
-.ep-who p { margin: 6px 0 0; font-size: 18px; color: #555b78; }
-.ep-who .ep-loc { font-size: 15px; color: #6b7185; }
+.ep-who p { margin: 6px 0 0; font-size: 16px; color: #555b78; }
+.ep-who .ep-loc { font-size: 14px; color: #6b7185; }
 .ep-upload { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 .ep-photo-btn { height: 44px; padding: 0 12px; background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; font-size: 18px; font-weight: 400; }
 .ep-photo-btn:hover { background: #f3f4fa; }
-.ep-hint { font-size: 15px; color: #6b7185; }
+.ep-hint { font-size: 14px; color: #6b7185; }
 
 .ep-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: start; }
 .ep-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .ep-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px 24px; }
-.ep-card h2 { margin: 0; font-size: 22px; font-weight: 500; }
-.ep-sub { margin: 14px 0 0; font-size: 15px; color: #6b7185; }
+.ep-card h2 { margin: 0; font-size: 20px; font-weight: 500; }
+.ep-sub { margin: 14px 0 0; font-size: 14px; color: #6b7185; }
 .ep-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .ep-ro { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #6b7185; }
 .ep-role { padding: 4px 8px; border-radius: 6px; background: #eef0ff; color: #4f46e5; font-size: 14px; font-weight: 500; }
 .ep-roletext { margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: #6b7185; }
 
 .ep-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin-top: 18px; }
-.ep-field { display: flex; flex-direction: column; gap: 8px; font-size: 18px; font-weight: 500; min-width: 0; }
+.ep-field { display: flex; flex-direction: column; gap: 8px; font-size: 17px; font-weight: 500; min-width: 0; }
 .ep-field input, .ep-select select {
   width: 100%; height: 44px; padding: 0 12px; background: #fff; color: #555b78;
-  border: 1px solid #dfe2ec; border-radius: 6px; font-size: 16px; font-weight: 400;
+  border: 1px solid #dfe2ec; border-radius: 6px; font-size: 15px; font-weight: 400;
 }
 .ep-field input:focus, .ep-select select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(74, 63, 219, .12); }
 .ep-field input.err { border-color: var(--red); }
@@ -306,12 +306,12 @@ const css = `
 .ep-select select { appearance: none; -webkit-appearance: none; padding-right: 36px; cursor: pointer; }
 .ep-select svg { position: absolute; right: 12px; top: 14px; color: #4d5370; pointer-events: none; }
 .ep-error { font-size: 13px; font-style: normal; font-weight: 400; color: var(--red); }
-.ep-info { display: flex; align-items: center; gap: 10px; margin: 20px 0 0; padding: 14px 16px; background: #f3f4f8; border-radius: 6px; font-size: 15px; color: #555b78; }
+.ep-info { display: flex; align-items: center; gap: 10px; margin: 20px 0 0; padding: 14px 16px; background: #f3f4f8; border-radius: 6px; font-size: 14px; color: #555b78; }
 
 .ep-reads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin-top: 16px; }
-.ep-read strong { display: block; font-size: 18px; font-weight: 500; }
-.ep-read span { display: block; margin-top: 6px; font-size: 16px; color: #6b7185; }
-.ep-small { margin: 18px 0 0; font-size: 13px; color: #555b78; }
+.ep-read strong { display: block; font-size: 16.5px; font-weight: 500; }
+.ep-read span { display: block; margin-top: 6px; font-size: 15px; color: #6b7185; font-weight: 400; }
+.ep-small { margin: 18px 0 0; font-size: 12px; color: #555b78; }
 
 .ep-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 4px 0 0 10px; }
 .ep-priv { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7185; }
@@ -330,4 +330,5 @@ const css = `
   .ep-page { padding-left: 16px; padding-right: 16px; }
   .ep-fields, .ep-reads { grid-template-columns: 1fr; }
 }
+.ep-col .ep-head h2 { font-size: 18px; }
 `;

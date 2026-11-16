@@ -171,7 +171,7 @@ export default function NewlyJoined({ onBack }) {
 /* Page styles. Colour variables, avatar and name styles come from Dashboard.jsx. */
 const css = `
 .nj-page { padding: 20px 48px 28px 20px; display: flex; flex-direction: column; gap: 16px; }
-.nj-crumbs { display: flex; align-items: center; gap: 8px; padding-left: 4px; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.nj-crumbs { display: flex; align-items: center; gap: 8px; padding-left: 4px; font-size: 19px; font-weight: 500; color: #626979; }
 .nj-crumbs button { border: 0; background: transparent; padding: 0; color: inherit; font-size: inherit; font-weight: inherit; }
 .nj-back { display: grid; place-items: center; margin-right: 4px; }
 .nj-link:hover { text-decoration: underline; }
@@ -180,8 +180,8 @@ const css = `
   display: flex; align-items: center; gap: 14px; width: 100%; max-width: 420px; height: 44px;
   padding: 0 18px; background: #eef0fb; border-radius: 22px; color: #555b78;
 }
-.nj-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink); }
-.nj-search input::placeholder { color: #6f7590; }
+.nj-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink); font-weight: 400; }
+.nj-search input::placeholder { color: #626979; }
 .nj-toggle { display: flex; gap: 8px; padding: 6px 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
 .nj-toggle button {
   height: 30px; min-width: 120px; padding: 0 16px; background: #fff; color: var(--ink);
@@ -190,7 +190,7 @@ const css = `
 .nj-toggle button.on { background: #2f5bea; border-color: #2f5bea; color: #fff; }
 
 .nj-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 18px; }
-.nj-card-title { margin: 0; padding: 4px 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.2px; }
+.nj-card-title { margin: 0; padding: 4px 0 10px; font-size: 19.5px; font-weight: 600; letter-spacing: 0; }
 .nj-table { min-width: 900px; }
 .nj-table thead th:nth-child(1) { width: 13%; }
 .nj-table thead th:nth-child(2) { width: 20.2%; }
@@ -198,14 +198,14 @@ const css = `
 .nj-table thead th:nth-child(4) { width: 15.8%; }
 .nj-table thead th:nth-child(5) { width: 12.9%; }
 .nj-table thead th:nth-child(6) { width: 15.8%; }
-.nj-date { font-size: 14px !important; font-weight: 400 !important; }
+.nj-date { font-size: 14px !important; font-weight: 500 !important; }
 .nj-progress { display: flex; flex-direction: column; gap: 4px; width: 118px; margin: 0 auto; }
-.nj-progress-label { font-size: 14px; font-weight: 400; color: #1f4de0; white-space: nowrap; }
+.nj-progress-label { font-size: 14px; font-weight: 500; color: #1f4de0; white-space: nowrap; }
 .nj-track { height: 8px; background: #e5e7ee; border-radius: 4px; overflow: hidden; }
 .nj-fill { height: 100%; background: #3730a3; border-radius: 4px; }
 .nj-progress.done .nj-progress-label { color: #2fd08a; }
 .nj-progress.done .nj-fill { background: #4ade9a; }
-.nj-showing { margin: 12px 8px 0; font-size: 16px; color: var(--muted); }
+.nj-showing { margin: 12px 8px 0; font-size: 16px; color: #626979; font-weight: 400; }
 @media (max-width: 720px) {
   .nj-page { padding-left: 16px; padding-right: 16px; }
 }

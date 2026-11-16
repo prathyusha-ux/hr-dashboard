@@ -227,7 +227,7 @@ export default function TotalEmployees({ employees, onBack }) {
 /* Page styles. The table, badge and pager styles come from Dashboard.jsx. */
 const css = `
 .te-page { padding: 20px 48px 28px 28px; display: flex; flex-direction: column; gap: 16px; }
-.te-crumbs { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.te-crumbs { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500; color: #626979; }
 .te-crumbs button { border: 0; background: transparent; padding: 0; color: inherit; font-size: inherit; font-weight: inherit; }
 .te-back { display: grid; place-items: center; }
 .te-link:hover { text-decoration: underline; }
@@ -238,15 +238,15 @@ const css = `
 }
 .te-search input {
   flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
-  font: inherit; font-size: 16px; color: var(--ink);
+  font: inherit; font-size: 16px; color: var(--ink); font-weight: 400;
 }
-.te-search input::placeholder { color: #6f7590; }
+.te-search input::placeholder { color: #626979; }
 .te-toggle { display: flex; gap: 8px; padding: 6px 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
 .te-toggle button {
   height: 30px; min-width: 120px; padding: 0 16px; background: #fff; color: var(--ink);
   border: 1px solid var(--line); border-radius: 16px; font-size: 14px; font-weight: 600;
 }
-.table-head .te-card-title { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.2px; }
+.table-head .te-card-title { margin: 0; font-size: 19.5px; font-weight: 600; letter-spacing: 0; }
 .te-toggle button.on { background: #2f5bea; border-color: #2f5bea; color: #fff; }
 @media (max-width: 720px) {
   .te-page { padding-left: 16px; padding-right: 16px; }

@@ -293,23 +293,23 @@ export default function AddEmployee({ nextId, onBack, onSave }) {
 const css = `
 /* Add Employee page */
 .add-page { padding: 20px 48px 32px 28px; }
-.crumbs { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #3a3f58; }
+.crumbs { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #626979; font-weight: 500; }
 .crumbs button { border: 0; background: transparent; padding: 0; color: inherit; font-size: 16px; }
 .crumb-back { display: grid; place-items: center; }
 .crumb-link:hover { text-decoration: underline; }
-.add-title { margin: 22px 0 6px; font-size: 30px; font-weight: 600; line-height: 1.2; }
-.add-sub { margin: 0 0 18px; font-size: 16px; color: var(--muted); }
+.add-title { margin: 22px 0 6px; font-size: 28px; font-weight: 600; line-height: 1.2; color: #202432; }
+.add-sub { margin: 0 0 18px; font-size: 15px; color: #626979; }
 .add-grid { display: grid; grid-template-columns: minmax(0, 1.58fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .add-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 24px 22px; }
-.card-title { margin: 0 0 8px; font-size: 18px; font-weight: 600; }
+.card-title { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: #202432; }
 .card-title.small { font-size: 16px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
 .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; min-width: 0; }
-.field-label { font-size: 16px; font-weight: 500; color: #1a2038; }
+.field-label { font-size: 16px; font-weight: 500; color: #202432; }
 .input {
   width: 100%; height: 40px; padding: 0 12px; background: #fff;
-  border: 1px solid #dfe2ec; border-radius: 6px; font-size: 14px; font-weight: 400; color: var(--ink);
+  border: 1px solid #dfe2ec; border-radius: 6px; font-size: 13px; font-weight: 400; color: var(--ink);
 }
 .input::placeholder { color: #8a90a6; }
 .input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(74, 63, 219, .12); }

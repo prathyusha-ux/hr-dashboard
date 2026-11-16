@@ -310,12 +310,12 @@ export default function AccountPrivacy({ onBack, onProfile, onNotifications }) {
 /* Page styles. Colour variables come from .app in Dashboard.jsx. */
 const css = `
 .ap-page { padding: 20px 48px 28px 18px; display: flex; flex-direction: column; gap: 14px; }
-.ap-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 20px; font-weight: 500; color: #3a3f58; }
+.ap-crumb { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0 0 0 10px; border: 0; background: transparent; font-size: 19px; font-weight: 500; color: #626979; }
 .ap-crumb:hover { text-decoration: underline; }
 .ap-crumb span { margin: 0 -4px 0 -2px; }
 .ap-top { padding-left: 10px; }
-.ap-top h1 { margin: 0; font-size: 32px; font-weight: 600; line-height: 1.2; }
-.ap-top p { margin: 6px 0 0; font-size: 15px; color: #4d5370; }
+.ap-top h1 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; color: #202432; }
+.ap-top p { margin: 6px 0 0; font-size: 14px; color: #626979; font-weight: 400; }
 
 .ap-tabs { display: flex; gap: 8px; margin-left: 10px; border-bottom: 1px solid var(--line); }
 .ap-tabs button {
@@ -328,7 +328,7 @@ const css = `
 .ap-grid { display: grid; grid-template-columns: minmax(0, 1.56fr) minmax(0, 1fr); gap: 26px; align-items: start; }
 .ap-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .ap-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 24px 20px; }
-.ap-card h2 { margin: 0; font-size: 24px; font-weight: 500; }
+.ap-card h2 { margin: 0; font-size: 22px; font-weight: 500; }
 .ap-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .ap-pill { padding: 3px 10px; border-radius: 999px; background: #eef0ff; color: #4f46e5; font-size: 14px; font-weight: 500; }
 .ap-count { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: #e4e8fb; color: #3a3f58; font-size: 13px; font-weight: 500; }
@@ -343,7 +343,7 @@ const css = `
 .ap-select { position: relative; display: block; }
 .ap-select select { appearance: none; -webkit-appearance: none; padding-right: 36px; cursor: pointer; }
 .ap-select svg { position: absolute; right: 12px; top: 14px; color: #4d5370; pointer-events: none; }
-.ap-verified { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; font-size: 15px; color: #4d5370; }
+.ap-verified { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; font-size: 14px; color: #4d5370; }
 .ap-verified svg { color: var(--green); }
 
 .ap-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -352,10 +352,10 @@ const css = `
 .ap-card h2 + .ap-row { margin-top: 6px; }
 .ap-icon { width: 36px; height: 36px; flex-shrink: 0; display: grid; place-items: center; border-radius: 8px; background: #eef0fb; color: #4f46e5; }
 .ap-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-.ap-row-text strong { font-size: 19px; font-weight: 500; }
-.ap-row-text span { font-size: 15px; color: #6b7185; }
+.ap-row-text strong { font-size: 17px; font-weight: 500; }
+.ap-row-text span { font-size: 14px; color: #6b7185; }
 .ap-row-text .ap-green { color: var(--green); }
-.ap-link { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; padding: 0; color: #2f3cd6; font-size: 15px; font-weight: 400; white-space: nowrap; }
+.ap-link { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; padding: 0; color: #2f3cd6; font-size: 14px; font-weight: 400; white-space: nowrap; }
 .ap-link:hover:not(:disabled) { text-decoration: underline; }
 .ap-link:disabled { color: #a3a8bd; cursor: not-allowed; }
 
@@ -397,4 +397,5 @@ const css = `
   .ap-fields { grid-template-columns: 1fr; }
   .ap-tabs button { font-size: 17px; margin-right: 8px; }
 }
+.ap-row.plain .ap-row-text strong { font-size: 18px; }
 `;
