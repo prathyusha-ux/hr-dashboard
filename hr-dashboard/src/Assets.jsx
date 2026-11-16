@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import AssetDetail from "./AssetDetail.jsx";
 
 /* Sample data. Replace with your API response later. */
 const ASSETS = [
@@ -60,6 +61,7 @@ export default function Assets({ onBack }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [status, setStatus] = useState("All");
+  const [detail, setDetail] = useState(null); // { asset, mode } when an asset page is open
 
   const categories = useMemo(() => ["All", ...new Set(ASSETS.map((a) => a.category))], []);
   const statuses = ["All", "Assigned", "Available", "Maintenance"];
@@ -81,6 +83,10 @@ export default function Assets({ onBack }) {
       ? `Showing 1–${rows.length} matching assets`
       : `Showing 1–${rows.length} of ${TOTAL_ASSETS} assets · ${PAGE_SIZE} rows per page`;
 
+  if (detail) {
+    return <AssetDetail asset={detail.asset} mode={detail.mode} onBack={() => setDetail(null)} onDashboard={onBack} />;
+  }
+
   return (
     <main className="as-page">
       <style>{css}</style>
@@ -101,7 +107,9 @@ export default function Assets({ onBack }) {
           <h1>Asset Management</h1>
           <p>Track equipment, ownership and the lifecycle of every asset.</p>
         </div>
-        <button type="button" className="as-add">Add Asset</button>
+        <button type="button" className="as-add" onClick={() => setDetail({ asset: ASSETS[0], mode: "add" })}>
+          Add Asset
+        </button>
       </section>
 
       <section className="as-stats">
@@ -173,7 +181,9 @@ export default function Assets({ onBack }) {
                   <td>{a.assignee}</td>
                   <td>{a.date || "—"}</td>
                   <td><span className={`as-status ${a.status.toLowerCase()}`}>{a.status}</span></td>
-                  <td><button type="button" className="as-view">View</button></td>
+                  <td><button type="button" className="as-view" onClick={() => setDetail({ asset: a, mode: "view" })}>
+                      View
+                    </button></td>
                 </tr>
               ))}
             </tbody>
@@ -216,9 +226,9 @@ const css = `
 .as-hero p { margin: 6px 0 0; font-size: 17px; color: #4d5370; }
 .as-add {
   height: 44px; padding: 0 28px; border: 0; border-radius: 6px;
-  background: #5b3fd0; color: #fff; font-size: 16px; font-weight: 600;
+  background: #6847d6; color: #fff; font-size: 16px; font-weight: 600;
 }
-.as-add:hover { background: #4d32bd; }
+.as-add:hover { background: #5a3bc4; }
 
 .as-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .as-stat {
