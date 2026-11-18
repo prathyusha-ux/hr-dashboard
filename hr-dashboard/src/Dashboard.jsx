@@ -5,7 +5,7 @@ import EmployeesLeft from "./EmployeesLeft.jsx";
 import NewlyJoined from "./NewlyJoined.jsx";
 import Assets from "./Assets.jsx";
 import Documents from "./Documents.jsx";
-import AppraisalLetterPage from "./documents/appraisal/AppraisalLetterPage.jsx";
+import AppraisalLetterPage from "./Documents/appraisal/AppraisalLetterPage.jsx";
 import Settings from "./Settings.jsx";
 import NeedHelp from "./NeedHelp.jsx";
 import MyProfile from "./MyProfile.jsx";
