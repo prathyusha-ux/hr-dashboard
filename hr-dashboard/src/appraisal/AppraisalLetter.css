@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Appraisal letter — sizes, weights and colors from the Style Sizes sheet.
+   The PDF (download / email / stored copy) is a picture of these pages, so
+   changing a value here changes the preview AND the PDF.
+   ========================================================================== */
+
+#appraisal-letter {
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ---------- A4 page ---------- */
+#appraisal-letter .letter-page {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(794px, 100%);
+  min-height: 1123px;
+  margin: 28px auto;
+  padding: 44px 44px 22px;            /* 44px top + sides, 22px bottom */
+  background: #fff;
+  color: #1a1a1a;                      /* body text color */
+  font-family: Calibri, Carlito, Arial, sans-serif;
+  font-size: 15px;                     /* letter text size */
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  border: 0;
+  box-shadow: 0 10px 32px rgba(16, 24, 40, .12);
+}
+
+/* ---------- Logo ---------- */
+#appraisal-letter .letter-brand-row {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 0 14px !important;         /* space below logo */
+  padding: 0 !important;
+}
+
+#appraisal-letter .letter-brand-row img.company-logo {
+  position: static !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100px !important;         /* logo size — matches the offer-letter app */
+  max-height: 104px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: left top !important;
+  transform: none !important;
+}
+
+/* ---------- Heading ---------- */
+#appraisal-letter .letter-title {
+  margin: 0 0 20px !important;         /* space below heading */
+  color: #1a1a1a !important;           /* same as body text */
+  font-family: inherit;
+  font-size: 16px !important;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.4;
+  text-align: center !important;
+  text-decoration: underline;
+}
+
+/* ---------- Paragraphs ---------- */
+#appraisal-letter p {
+  margin: 13px 0;                      /* space between paragraphs */
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+#appraisal-letter p strong {
+  font-weight: 700;                    /* highlighted text */
+}
+
+#appraisal-letter h4 {
+  margin: 20px 0 10px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ---------- Details list ---------- */
+#appraisal-letter .appraisal-details-list {
+  margin: 10px 0 14px;
+  padding-left: 24px;
+  line-height: 1.4;
+}
+
+#appraisal-letter .appraisal-details-list li {
+  margin: 2px 0;
+  padding-left: 2px;
+  line-height: 1.4;
+}
+
+/* ---------- Salary table ---------- */
+#appraisal-letter .salary-structure {
+  margin: 12px 0 12px;
+  padding: 0 28px;
+  width: 100%;
+  box-sizing: border-box;
+  break-inside: avoid;
+}
+
+#appraisal-letter .salary-structure table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #1a1a1a;
+}
+
+#appraisal-letter .salary-structure th,
+#appraisal-letter .salary-structure td {
+  padding: 3px 7px;
+  border: 1px solid #202020;
+  text-align: right;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+#appraisal-letter .salary-structure th:first-child,
+#appraisal-letter .salary-structure td:first-child {
+  text-align: left;
+  width: 43%;
+}
+
+#appraisal-letter .salary-structure thead th {
+  background: #e2e2e2;
+  font-weight: 700;
+  text-align: center;
+}
+
+#appraisal-letter .salary-structure .total-row th,
+#appraisal-letter .salary-structure .total-row td,
+#appraisal-letter .salary-structure .take-home-row th {
+  font-weight: 700;
+}
+
+#appraisal-letter .salary-structure .section-row th {
+  text-align: left;
+  background: #fff;
+}
+
+/* ---------- Stamp / signature ---------- */
+#appraisal-letter .letter-signature-area {
+  margin-top: 22px;
+}
+
+#appraisal-letter .letter-signoff {
+  margin-top: 26px;
+}
+
+#appraisal-letter .signature-stamp-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 280px;                    /* stamp max width — raise both to enlarge further */
+  max-height: 160px;                   /* stamp max height */
+  object-fit: contain;
+  object-position: left center;
+  margin: 8px 0 0;
+}
+
+/* ---------- Footer (GST line) ---------- */
+#appraisal-letter .company-gst {
+  margin: auto 0 0 !important;         /* pinned to the bottom of the page */
+  padding-top: 10px;                   /* space above footer text */
+  border-top: 1px solid #b8bcc4;       /* 1px, #b8bcc4, full width */
+  color: #2457D6;
+  font-size: 13px !important;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center !important;
+  line-height: 1.4;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  #appraisal-letter .letter-page {
+    width: 100%;
+    min-height: 0;
+    margin: 12px auto;
+    padding: 28px 20px 20px;
+    font-size: 13px;
+  }
+  #appraisal-letter p { font-size: 13px; }
+  #appraisal-letter .salary-structure { padding: 0; }
+  #appraisal-letter .salary-structure table { font-size: 10px; }
+  #appraisal-letter .salary-structure th,
+  #appraisal-letter .salary-structure td { padding: 4px 3px; }
+  #appraisal-letter .letter-title { font-size: 14px !important; }
+}
+
+/* ---------- Browser print (Ctrl+P) ---------- */
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body, #root { margin: 0; padding: 0; background: #fff !important; }
+  body * { visibility: hidden; }
+  #appraisal-letter, #appraisal-letter * { visibility: visible; }
+  #appraisal-letter { position: absolute; top: 0; left: 0; width: 100%; }
+  #appraisal-letter .letter-page {
+    width: 100%;
+    height: 10.69in;
+    min-height: 0;
+    margin: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  #appraisal-letter .letter-page:last-child { break-after: auto; page-break-after: auto; }
+  .secondary-buttons, .form-card, .page-header, .letter-empty, .edit-hint { display: none !important; }
+}

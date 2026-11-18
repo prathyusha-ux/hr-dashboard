@@ -5,6 +5,7 @@ import EmployeesLeft from "./EmployeesLeft.jsx";
 import NewlyJoined from "./NewlyJoined.jsx";
 import Assets from "./Assets.jsx";
 import Documents from "./Documents.jsx";
+import AppraisalLetterPage from "./appraisal/AppraisalLetterPage.jsx";
 import Settings from "./Settings.jsx";
 import NeedHelp from "./NeedHelp.jsx";
 import MyProfile from "./MyProfile.jsx";
@@ -512,6 +513,15 @@ export default function Dashboard() {
         ) : view === "documents" ? (
           <Documents
             onBack={() => {
+              setActiveNav("Dashboard");
+              goTo("list");
+            }}
+            onOpenDoc={(page) => goTo(page)}
+          />
+        ) : view === "appraisal" ? (
+          <AppraisalLetterPage
+            onBack={() => goTo("documents")}
+            onDashboard={() => {
               setActiveNav("Dashboard");
               goTo("list");
             }}

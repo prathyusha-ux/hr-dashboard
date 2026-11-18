@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* Appraisal Letter page. Everything is scoped to .apg so it cannot change other pages.
+   Colour variables come from .app in Dashboard.jsx. */
+.apg { padding: 20px 48px 28px 18px; display: flex; flex-direction: column; gap: 16px; }
+.apg-crumbs { display: flex; align-items: center; gap: 10px; padding-left: 10px; font-size: 19px; font-weight: 500; color: #626979; }
+.apg .apg-crumbs button { height: auto; padding: 0; border: 0; background: transparent; color: inherit; font-size: inherit; font-weight: inherit; }
+.apg .apg-crumbs button:hover:not(:disabled) { background: transparent; }
+.apg .apg-crumbs .apg-link:hover { text-decoration: underline; }
+.apg .apg-back { display: grid; place-items: center; }
+
+.apg-hero { display: flex; flex-direction: column; justify-content: center; min-height: 88px; padding: 0 24px; background: #f0ebfc; border-radius: 12px; }
+.apg-hero h1 { margin: 0; font-size: 28px; font-weight: 600; line-height: 1.2; color: #202432; }
+.apg-hero p { margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #626979; }
+
+/* ---- cards ---- */
+.apg .page-header,
+.apg .form-card { background: #fff; border: 1px solid #e4e7ef; border-radius: 12px; padding: 18px 24px 22px; }
+.apg .apg-card-title { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 24px; color: #202432; }
+.apg .page-header .apg-card-title { margin-bottom: 2px; }
+.apg .page-subtitle { margin: 0 0 12px; font-size: 14px; color: #626979; }
+.apg .appraisal-container { display: flex; flex-direction: column; gap: 16px; }
+
+/* ---- search for saved letters ---- */
+.apg .history-search-row { display: flex; gap: 12px; max-width: 640px; }
+.apg .history-search-row input {
+  flex: 1; padding-left: 42px; background-color: #f7f8fc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23626979' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 14px center;
+}
+.apg .search-results { max-width: 640px; }
+.apg .search-results:empty { display: none; }
+.apg .search-empty { margin: 10px 0 0; font-size: 14px; color: #626979; }
+.apg .search-result-row {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px;
+  padding: 10px 0; border-bottom: 1px solid #e4e7ef; font-size: 14px; color: #202432;
+}
+.apg .search-result-row:last-child { border-bottom: 0; }
+.apg .search-result-row button.result-download { height: auto; padding: 0; border: 0; background: transparent; color: #5834bc; font-size: 14px; font-weight: 500; }
+.apg .search-result-row button.result-download:hover:not(:disabled) { background: transparent; text-decoration: underline; }
+
+/* ---- form ---- */
+.apg .form-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 20px; margin-bottom: 20px; }
+.apg .field-group { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.apg .field-group label { font-size: 15px; font-weight: 500; color: #202432; }
+.apg input {
+  width: 100%; height: 42px; padding: 0 12px; background: #fff; color: #202432;
+  border: 1px solid #dfe2ec; border-radius: 6px; font: inherit; font-size: 14px; font-weight: 400;
+}
+.apg input::placeholder { color: #8a90a6; }
+.apg input:focus { outline: none; border-color: #6847d6; box-shadow: 0 0 0 3px rgba(104, 71, 214, .12); }
+.apg input[readonly] { background: #f3f4f8; color: #626979; }
+.apg input.input-error, .apg input.input-error:focus { border-color: #c4244b; box-shadow: 0 0 0 3px rgba(196, 36, 75, .1); }
+.apg .field-error { margin: 0; font-size: 12px; font-weight: 500; color: #c4244b; }
+.apg .field-hint { margin: 0; font-size: 12px; color: #626979; }
+
+/* ---- buttons ---- */
+.apg button {
+  height: 40px; padding: 0 18px; background: #fff; color: #202432;
+  border: 1px solid #e4e7ef; border-radius: 6px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.apg button:hover:not(:disabled) { background: #f3f4fa; }
+.apg button:disabled { opacity: .5; cursor: not-allowed; }
+.apg .btn-primary { background: #6847d6; border-color: #6847d6; color: #fff; }
+.apg .btn-primary:hover:not(:disabled) { background: #5a3bc4; }
+.apg .btn-green { background: #18734e; border-color: #18734e; color: #fff; }
+.apg .btn-green:hover:not(:disabled) { background: #135e40; }
+.apg .btn-red { background: #c4244b; border-color: #c4244b; color: #fff; }
+.apg .btn-red:hover:not(:disabled) { background: #a81d3f; }
+.apg .btn-wide { min-width: 240px; height: 44px; }
+.apg .button-row { display: flex; justify-content: center; }
+.apg .secondary-buttons { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+
+/* ---- messages ---- */
+.apg .form-error { margin: 0 0 16px; padding: 10px 14px; background: #fde4ea; color: #c4244b; border-radius: 8px; font-size: 14px; }
+.apg .email-success { margin: 0; text-align: center; font-size: 14px; font-weight: 600; color: #18734e; }
+.apg .center-error { text-align: center; }
+.apg .edit-hint { margin: 0; text-align: center; font-size: 13px; font-weight: 600; color: #4f46e5; }
+.apg .save-status { margin: 0; text-align: center; font-size: 14px; font-weight: 500; color: #626979; }
+.apg .letter-empty {
+  margin: 0; padding: 28px; text-align: center; font-size: 15px; color: #626979;
+  background: #fff; border: 1px dashed #cfd3e3; border-radius: 12px;
+}
+.apg .letter-preview.editing .letter-page { outline: 2px dashed #6847d6; outline-offset: 6px; cursor: text; }
+
+/* ---- keep the letter exactly as designed ----
+   The dashboard has its own table styles; these lines stop them from touching the letter's salary table. */
+#appraisal-letter .salary-structure table { min-width: 0; }
+#appraisal-letter .salary-structure th,
+#appraisal-letter .salary-structure td { height: auto; font-size: 13px; font-weight: 400; color: #1a1a1a; border-radius: 0; }
+#appraisal-letter .salary-structure thead th:nth-child(n + 2) { width: auto; }
+
+@media (max-width: 1100px) {
+  .apg .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .apg { padding-left: 16px; padding-right: 16px; }
+  .apg .form-grid { grid-template-columns: 1fr; }
+  .apg .history-search-row { flex-direction: column; }
+}

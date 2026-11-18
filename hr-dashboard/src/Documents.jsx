@@ -1,12 +1,12 @@
 import { useMemo, useState } from "react";
 
-/* Add the live link of each generator in `url` and its Open button will work. */
+/* `view` opens a page inside this app (Appraisal Letter). For the others, add the live link of each generator in `url` and its Open button will work. */
 const DOCS = [
   { title: "Offer Letter", text: "Create offer letters with the salary breakup for new hires.", url: "", icon: "offer" },
   { title: "Relieving Letter", text: "Issue a relieving letter when an employee leaves.", url: "", icon: "relieving" },
   { title: "Experience Letter", text: "Confirm an employee's role and years of service.", url: "", icon: "experience" },
   { title: "Payslip", text: "Generate monthly payslips for employees.", url: "", icon: "payslip" },
-  { title: "Appraisal Letter", text: "Share revised pay and role after a performance review.", url: "", icon: "appraisal" },
+  { title: "Appraisal Letter", text: "Share revised pay and role after a performance review.", url: "", icon: "appraisal", view: "appraisal" },
 ];
 
 const Icon = ({ children, size = 18 }) => (
@@ -65,12 +65,15 @@ const DOC_ICONS = {
   ),
 };
 
-export default function Documents({ onBack }) {
+export default function Documents({ onBack, onOpenDoc }) {
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState("");
 
   const openDoc = (d) => {
-    if (d.url) {
+    if (d.view && onOpenDoc) {
+      setMessage("");
+      onOpenDoc(d.view);
+    } else if (d.url) {
       setMessage("");
       window.open(d.url, "_blank", "noopener");
     } else {
